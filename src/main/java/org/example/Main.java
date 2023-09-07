@@ -1,6 +1,5 @@
 package org.example;
 import org.example.Solutions.*;
-
 import java.util.*;
 
 public class Main {
