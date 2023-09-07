@@ -16,7 +16,22 @@ public class Main {
 //        twoNumberSum();
 //        sortedSquaredArray();
 //        nonConstructableChange();
+//        branchSum();
+//        nodeDepths();
+//        evaluateExpressionTree();
+//        removeDuplicateFromLinkedList();
+//        middleNode();
+//        nthFibonacci();
+//        productSum();
+//        bubbleSort();
+//        insertionSort();
+//        palindromeCheck();
+//        caesarCypherEncryptor();
+//        commonCharacter();
+//        firstNonRepeatingCharacter();
+//        breathFirstSearch();
     }
+
 
     public static void moveElementToEnd() {
         List<Integer> array = new ArrayList<Integer>(Arrays.asList(2, 1, 2, 2, 2, 3, 4, 2));
@@ -121,9 +136,124 @@ public class Main {
     }
 
     public static void branchSum(){
+        BranchSum.BinaryTree tree = new BranchSum.BinaryTree(1).insert(Arrays.asList(2, 3, 4, 5, 6, 7, 8, 9, 10));
+        List<Integer> expected = new ArrayList<Integer>(Arrays.asList(15, 16, 18, 10, 11));
+        BranchSum.branchSums(tree).equals(expected);
+    }
+
+    public static void nodeDepths(){
+        NodeDepths.BinaryTree root = new NodeDepths.BinaryTree(1);
+        root.left = new NodeDepths.BinaryTree(2);
+        root.left.left = new NodeDepths.BinaryTree(4);
+        root.left.left.left = new NodeDepths.BinaryTree(8);
+        root.left.left.right = new NodeDepths.BinaryTree(9);
+        root.left.right = new NodeDepths.BinaryTree(5);
+        root.right = new NodeDepths.BinaryTree(3);
+        root.right.left = new NodeDepths.BinaryTree(6);
+        root.right.right = new NodeDepths.BinaryTree(7);
+        int recursive = NodeDepths.nodeDepthsRecursive(root);
+        int nonRecursive = NodeDepths.nodeDepthsNonRecursive(root);
+    }
+
+    public static void evaluateExpressionTree(){
+        EvaluateExpressionTree.BinaryTree tree = new EvaluateExpressionTree.BinaryTree(-1);
+        tree.left = new EvaluateExpressionTree.BinaryTree(2);
+        tree.right = new EvaluateExpressionTree.BinaryTree(-2);
+        tree.right.left = new EvaluateExpressionTree.BinaryTree(5);
+        tree.right.right = new EvaluateExpressionTree.BinaryTree(1);
+        var actual = new EvaluateExpressionTree().evaluateExpressionTree(tree);
+    }
+
+    public static void removeDuplicateFromLinkedList(){
+        RemoveDuplicatesFromLinkedList.LinkedList input = new RemoveDuplicatesFromLinkedList.LinkedList(1);
+        RemoveDuplicatesFromLinkedList.LinkedList.addMany(input, new ArrayList<Integer>(Arrays.asList(1, 3, 4, 4, 4, 5, 6, 6)));
+        List<Integer> expectedNodes = new ArrayList<Integer>(Arrays.asList(1, 3, 4, 5, 6));
+        RemoveDuplicatesFromLinkedList.LinkedList output = new RemoveDuplicatesFromLinkedList().removeDuplicatesFromLinkedList(input);
 
     }
 
+    public static void middleNode(){
+        MiddleNode.LinkedList linkedList = new MiddleNode.LinkedList(0);
+        linkedList.next = new MiddleNode.LinkedList(1);
+        MiddleNode.LinkedList expected = new MiddleNode.LinkedList(2);
+        linkedList.next.next = expected;
+        expected.next = new MiddleNode.LinkedList(3);
+        var actual = new MiddleNode().middleNode(linkedList);
+        System.out.println(actual.value);
+    }
 
+    public static void nthFibonacci(){
+
+        NthFibonacci.getNthFib(6);
+
+    }
+
+    public static void productSum(){
+        List<Object> test = new ArrayList<Object>(Arrays.asList(
+                5,
+                2,
+                new ArrayList<Object>(Arrays.asList(
+                        7,
+                        -1
+                    )
+                ),
+                3,
+                new ArrayList<Object>(
+                        Arrays.asList(
+                                6,
+                                new ArrayList<Object>(Arrays.asList(
+                                        -13,
+                                        8)
+                                ),
+                                4)
+                )
+        ));
+        ProductSum.productSum(test);
+    }
+
+    public static void bubbleSort(){
+        int[] expected = {2, 3, 5, 5, 6, 8, 9};
+        int[] input = {8, 5, 2, 9, 5, 6, 3};
+        BubbleSort.bubbleSort(input);
+    }
+
+    public static void insertionSort(){
+        int[] input = {8, 5, 2, 9, 5, 6, 3};
+        InsertionSort.insertionSort(input);
+    }
+
+    public static void palindromeCheck(){
+
+        PalindromeCheck.isPalindrome("abcdcba");
+
+    }
+
+    public static void caesarCypherEncryptor(){
+
+        CaesarCypherEncryptor.caesarCypherEncryptor("xyz", 2);
+
+    }
+
+    public static void commonCharacter(){
+        String[] input = new String[] {"abc", "bcd", "cbad"};
+        new CommonCharacters().commonCharacters(input);
+    }
+
+    public static void firstNonRepeatingCharacter(){
+        String input = "abcdcaf";
+        new FirstNonRepeatingCharacter().firstNonRepeatingCharacter(input);
+    }
+
+    public static void breathFirstSearch(){
+        BreathFirstSearch.Node graph = new BreathFirstSearch.Node("A");
+        graph.addChild("B").addChild("C").addChild("D");
+        graph.children.get(0).addChild("E").addChild("F");
+        graph.children.get(2).addChild("G").addChild("H");
+        graph.children.get(0).children.get(1).addChild("I").addChild("J");
+        graph.children.get(2).children.get(0).addChild("K");
+        String[] expected = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"};
+        List<String> inputArray = new ArrayList<String>();
+        graph.breadthFirstSearch(inputArray);
+    }
 
 }

@@ -5,12 +5,37 @@ public class BranchSum {
         int value;
         BinaryTree left;
         BinaryTree right;
-
-        BinaryTree(int value) {
+        public BinaryTree(int value) {
             this.value = value;
             this.left = null;
             this.right = null;
         }
+        public BinaryTree insert(List<Integer> values) {
+            return insert(values, 0);
+        }
+        BinaryTree insert(List<Integer> values, int i) {
+            if (i >= values.size()) return null;
+
+            List<BinaryTree> queue = new ArrayList<BinaryTree>();
+            queue.add(this);
+            while (queue.size() > 0) {
+                BinaryTree current = queue.get(0);
+                queue.remove(0);
+                if (current.left == null) {
+                    current.left = new BinaryTree(values.get(i));
+                    break;
+                }
+                queue.add((BinaryTree) current.left);
+                if (current.right == null) {
+                    current.right = new BinaryTree(values.get(i));
+                    break;
+                }
+                queue.add((BinaryTree) current.right);
+            }
+            insert(values, i + 1);
+            return this;
+        }
+
     }
     public static List<Integer> branchSums(BinaryTree root) {
         // Write your code here.
