@@ -30,6 +30,7 @@ public class Main {
 //        commonCharacter();
 //        firstNonRepeatingCharacter();
 //        breathFirstSearch();
+//        firstDuplicateValue();
     }
 
 
@@ -254,6 +255,11 @@ public class Main {
         String[] expected = {"A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"};
         List<String> inputArray = new ArrayList<String>();
         graph.breadthFirstSearch(inputArray);
+    }
+
+    public static void firstDuplicateValue(){
+        var input = new int[] {2, 1, 5, 2, 3, 3, 4};
+        new FirstDuplicateValue().firstDuplicateValue(input);
     }
 
 }
