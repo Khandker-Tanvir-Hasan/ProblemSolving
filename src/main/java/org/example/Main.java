@@ -31,6 +31,7 @@ public class Main {
 //        firstNonRepeatingCharacter();
 //        breathFirstSearch();
 //        firstDuplicateValue();
+//        reverseLinkedList();
     }
 
 
@@ -260,6 +261,11 @@ public class Main {
     public static void firstDuplicateValue(){
         var input = new int[] {2, 1, 5, 2, 3, 3, 4};
         new FirstDuplicateValue().firstDuplicateValue(input);
+    }
+
+    public static void reverseLinkedList(){
+        ReverseLinkedList.LinkedList test = ReverseLinkedList.newLinkedList(new int[] {0, 1, 2, 3, 4, 5});
+        ReverseLinkedList.reverseLinkedList(test);
     }
 
 }
