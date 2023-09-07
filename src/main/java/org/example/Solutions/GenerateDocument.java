@@ -1,6 +1,6 @@
 package org.example.Solutions;
 import java.util.*;
-public class DocumentGenaration {
+public class GenerateDocument {
     public boolean generateDocument(String characters, String document) {
         // Write your code here.
         HashMap<Character, Integer> characterCollection = new HashMap<>();

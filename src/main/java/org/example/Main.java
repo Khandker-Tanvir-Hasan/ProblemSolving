@@ -8,11 +8,14 @@ public class Main {
 //        moveElementToEnd();
 //        arrayOfProducts();
 //        binarySearch();
-//        documentGenaration();
+//        generateDocument();
 //        deptFirstSearch();
 //        runLengthEncoding();
 //        validateSubsequence();
 //        selectionSort();
+//        twoNumberSum();
+//        sortedSquaredArray();
+//        nonConstructableChange();
     }
 
     public static void moveElementToEnd() {
@@ -33,10 +36,10 @@ public class Main {
         System.out.println("the result is:" + new BinarySearch().binarySearch(input, target));
     }
 
-    public static void documentGenaration(){
+    public static void generateDocument(){
         String characters = "Bste!hetsi ogEAxpelrt x ";
         String document = "AlgoExpert is the Best!";
-        System.out.println(new DocumentGenaration().generateDocument(characters, document));
+        System.out.println(new GenerateDocument().generateDocument(characters, document));
     }
 
     public static void deptFirstSearch(){
@@ -69,5 +72,58 @@ public class Main {
         int[] input = {1,2};
         System.out.println(SelectionSort.selectionSort(input));
     }
+
+    public static void twoNumberSum(){
+        int[] array = {3, 5, -4, 8, 11, 1, -1, 6};
+        int target = 10;
+        TwoNumberSum.twoNumberSum(array, target);
+    }
+
+    public static void sortedSquaredArray(){
+        var input = new int[] {1, 2, 3, 5, 6, 8, 9};
+        SortedSquaredArray sortedSquaredArray = new SortedSquaredArray();
+        sortedSquaredArray.sortedSquaredArray(input);
+    }
+
+    public static void tournamentWinner(){
+        ArrayList<ArrayList<String>> competitions = new ArrayList<ArrayList<String>>();
+        ArrayList<String> competition1 = new ArrayList<String>(Arrays.asList("HTML", "C#"));
+        ArrayList<String> competition2 = new ArrayList<String>(Arrays.asList("C#", "Python"));
+        ArrayList<String> competition3 = new ArrayList<String>(Arrays.asList("Python", "HTML"));
+        competitions.add(competition1);
+        competitions.add(competition2);
+        competitions.add(competition3);ArrayList<Integer> results = new ArrayList<Integer>(Arrays.asList(0, 0, 1));
+        new TournamentWinner().tournamentWinner(competitions, results);
+    }
+
+    public static void nonConstructableChange(){
+        int[] input = new int[] {5, 7, 1, 1, 2, 3, 22};
+        int expected = 20;
+        var actual = new NonConstructableChange().nonConstructibleChange(input);
+    }
+
+    public static void findClosestValueInBst(){
+        var root = new FindClosestValueInBST.BST(10);
+        root.left = new FindClosestValueInBST.BST(5);
+        root.left.left = new FindClosestValueInBST.BST(2);
+        root.left.left.left = new FindClosestValueInBST.BST(1);
+        root.left.right = new FindClosestValueInBST.BST(5);
+        root.right = new FindClosestValueInBST.BST(15);
+        root.right.left = new FindClosestValueInBST.BST(13);
+        root.right.left.right = new FindClosestValueInBST.BST(14);
+        root.right.right = new FindClosestValueInBST.BST(22);
+        var actual = FindClosestValueInBST.findClosestValueInBst(root, 12);
+    }
+
+    public static void transposeMatrix(){
+        int[][] input = new int[][] {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+        int[][] actual = new TransposeMatrix().transposeMatrix(input);
+    }
+
+    public static void branchSum(){
+
+    }
+
+
 
 }
